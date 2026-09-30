@@ -43,8 +43,20 @@
     <!-- ============ LE JARDIN (défilement = on avance dans l'image) ============ -->
     <section class="journey" id="top" data-journey>
       <div class="journey-sticky">
-        <canvas class="garden" data-garden aria-label="Jardin en 3D : une allée en pas japonais traverse une haie, longe des gabions et mène à une terrasse en dallage."></canvas>
-        <div class="garden-fallback" aria-hidden="true"></div>
+        <div class="scenes" data-scenes>
+          <figure class="scene scene-first" data-scene data-focal="52% 64%" data-zoom="2.1">
+            <img src="assets/img/jardin-allee.jpg" alt="Allée en pas japonais sur gravier entre deux pelouses bordées de buis, menant à un muret en gabions." fetchpriority="high">
+          </figure>
+          <figure class="scene" data-scene data-focal="72% 12%" data-zoom="2.2">
+            <img src="assets/img/jardin-pas-japonais.jpg" alt="Pas japonais en pierre naturelle posés sur un lit de gravier, bordure acier et pelouse." loading="lazy">
+          </figure>
+          <figure class="scene" data-scene data-focal="30% 45%" data-zoom="2.0">
+            <img src="assets/img/jardin-gabions.jpg" alt="Muret en gabions rempli de pierres concassées, devant une pelouse." loading="lazy">
+          </figure>
+          <figure class="scene" data-scene data-focal="50% 55%" data-zoom="1.25">
+            <img src="assets/img/jardin-terrasse.jpg" alt="Accès à une terrasse en dallage entre deux gabions, arbres tiges en pots et haie taillée." loading="lazy">
+          </figure>
+        </div>
         <div class="vignette" aria-hidden="true"></div>
 
         <!-- Accroche -->
@@ -61,36 +73,24 @@
           </div>
         </div>
 
-        <div class="chapter chapter-enter" data-chapter data-from=".13" data-to=".27" aria-hidden="true">
+        <div class="chapter chapter-enter" data-chapter data-from=".14" data-to=".26" aria-hidden="true">
           <p class="enter-word">Entrez<em>dans le jardin</em></p>
         </div>
 
-        <div class="chapter chapter-card" data-chapter data-from=".31" data-to=".43">
+        <div class="chapter chapter-card" data-chapter data-from=".36" data-to=".5">
           <p class="chapter-num">01 — Sous vos pas</p>
           <h2>Pas japonais <em>&amp;</em> graviers</h2>
-          <p>Une allée qui dessine le jardin, posée pierre après pierre sur un lit de gravier clair.</p>
+          <p>Une allée qui dessine le jardin, posée pierre après pierre sur un lit de gravier.</p>
         </div>
 
-        <div class="chapter chapter-card chapter-right" data-chapter data-from=".47" data-to=".59">
+        <div class="chapter chapter-card chapter-right" data-chapter data-from=".6" data-to=".74">
           <p class="chapter-num">02 — Pour structurer</p>
-          <h2>Gabions <em>&amp;</em> galets</h2>
+          <h2>Gabions <em>&amp;</em> pierres</h2>
           <p>Murets, soutènements, séparations : la pierre en cage, brute et graphique.</p>
         </div>
 
-        <div class="chapter chapter-card" data-chapter data-from=".63" data-to=".75">
-          <p class="chapter-num">03 — Pour la chaleur</p>
-          <h2>Bois <em>&amp;</em> traverses</h2>
-          <p>Bacs surélevés, marches, bordures : le bois apporte sa matière au végétal.</p>
-        </div>
-
-        <div class="chapter chapter-card chapter-right" data-chapter data-from=".78" data-to=".87">
-          <p class="chapter-num">04 — Pour les finitions</p>
-          <h2>Bordures <em>&amp;</em> délimitations</h2>
-          <p>Des lignes nettes entre l’allée, la pelouse et les massifs.</p>
-        </div>
-
-        <div class="chapter chapter-final" data-chapter data-from=".91" data-to="1.01">
-          <p class="chapter-num">05 — Pour recevoir</p>
+        <div class="chapter chapter-final" data-chapter data-from=".86" data-to="1.01">
+          <p class="chapter-num">03 — Pour recevoir</p>
           <h2>Dallages <em>&amp;</em> terrasses</h2>
           <p>De la première pierre à la dernière dalle, tout votre extérieur au même endroit.</p>
           <div class="hero-actions">
@@ -100,20 +100,13 @@
         </div>
 
         <!-- Repères de progression -->
-        <div class="walk" aria-hidden="true">
-          <div class="walk-meter"><span data-meters>0</span> m</div>
-          <div class="walk-label">parcourus dans l’allée</div>
-        </div>
         <ol class="rail" aria-hidden="true">
           <li data-rail=".05">Entrée</li>
-          <li data-rail=".37">Allée</li>
-          <li data-rail=".53">Gabions</li>
-          <li data-rail=".69">Bois</li>
-          <li data-rail=".83">Bordures</li>
-          <li data-rail=".96">Terrasse</li>
+          <li data-rail=".4">Allée</li>
+          <li data-rail=".64">Gabions</li>
+          <li data-rail=".9">Terrasse</li>
         </ol>
         <div class="scroll-cue" data-cue aria-hidden="true"><span></span>Défilez pour entrer</div>
-        <div class="loader" aria-hidden="true"><span class="brand-mono">HM</span></div>
       </div>
     </section>
 
@@ -127,14 +120,14 @@
         </header>
 
         <ul class="product-grid">
-          <li class="product reveal"><canvas class="swatch" data-swatch="gravel" aria-hidden="true"></canvas><h3>Graviers décoratifs</h3><p>Allées, cours, massifs</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="gabion" aria-hidden="true"></canvas><h3>Galets &amp; gabions</h3><p>Murets, soutènements</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="slab" aria-hidden="true"></canvas><h3>Pas japonais</h3><p>Cheminements dans la pelouse</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="pavers" aria-hidden="true"></canvas><h3>Dallages</h3><p>Terrasses, abords de piscine</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="drystone" aria-hidden="true"></canvas><h3>Pierres &amp; parements</h3><p>Murets, piliers, habillages</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="wood" aria-hidden="true"></canvas><h3>Bois &amp; traverses</h3><p>Bacs, marches, bordures</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="edging" aria-hidden="true"></canvas><h3>Bordures</h3><p>Délimitations nettes</p></li>
-          <li class="product reveal"><canvas class="swatch" data-swatch="mulch" aria-hidden="true"></canvas><h3>Paillages &amp; terres</h3><p>Massifs, plantations</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-gravier.jpg" alt="Gravier concassé beige" loading="lazy" width="720" height="900"><h3>Graviers décoratifs</h3><p>Allées, cours, massifs</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-galets.jpg" alt="Galets roulés blancs et gris" loading="lazy" width="720" height="900"><h3>Galets &amp; gabions</h3><p>Murets, soutènements</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-pas-japonais.jpg" alt="Pas japonais en pierre sur gravier" loading="lazy" width="720" height="900"><h3>Pas japonais</h3><p>Cheminements dans la pelouse</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-dallage.jpg" alt="Grandes dalles de terrasse" loading="lazy" width="720" height="900"><h3>Dallages</h3><p>Terrasses, abords de piscine</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-pierres.jpg" alt="Muret en pierres sèches" loading="lazy" width="720" height="900"><h3>Pierres &amp; parements</h3><p>Murets, piliers, habillages</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-traverses.jpg" alt="Traverses en bois empilées" loading="lazy" width="720" height="900"><h3>Bois &amp; traverses</h3><p>Bacs, marches, bordures</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-bordure.jpg" alt="Bordure acier entre gravier et pelouse" loading="lazy" width="720" height="900"><h3>Bordures</h3><p>Délimitations nettes</p></li>
+          <li class="product reveal"><img class="swatch" src="assets/img/produit-paillage.jpg" alt="Paillage d’écorces de pin" loading="lazy" width="720" height="900"><h3>Paillages &amp; terres</h3><p>Massifs, plantations</p></li>
         </ul>
       </div>
     </section>
@@ -192,7 +185,7 @@
         </header>
         <div class="audience-grid">
           <article class="aud reveal">
-            <div class="aud-visual" data-swatch-bg="pavers" aria-hidden="true"></div>
+            <img class="aud-visual" src="assets/img/produit-dallage.jpg" alt="" loading="lazy">
             <div class="aud-body">
               <p class="chapter-num">Professionnels</p>
               <h3>Paysagistes, entreprises du bâtiment</h3>
@@ -200,7 +193,7 @@
             </div>
           </article>
           <article class="aud reveal">
-            <div class="aud-visual" data-swatch-bg="gravel" aria-hidden="true"></div>
+            <img class="aud-visual" src="assets/img/jardin-pas-japonais.jpg" alt="" loading="lazy">
             <div class="aud-body">
               <p class="chapter-num">Particuliers</p>
               <h3>Une allée, une terrasse, un jardin à repenser</h3>
@@ -250,9 +243,6 @@
     <p class="footer-word" aria-hidden="true">Hunaudières</p>
   </footer>
 
-  <script src="assets/vendor/three.min.js"></script>
-  <script src="assets/js/textures.js"></script>
-  <script src="assets/js/garden.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

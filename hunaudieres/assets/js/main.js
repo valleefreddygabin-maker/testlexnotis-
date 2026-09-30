@@ -4,7 +4,6 @@
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const fmt = (n, d = 1) => n.toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d });
 
-  if (!window.THREE) document.documentElement.classList.add("no-webgl");
 
   /* ---------- Menu ---------- */
   const header = document.querySelector("[data-header]");
@@ -19,23 +18,56 @@
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
-  /* ---------- Le jardin : progression du défilement ---------- */
+  /* ---------- Le jardin : on entre dans l'image au défilement ----------
+     Chaque scène zoome vers son point focal ; la suivante s'ouvre comme une
+     fenêtre à cet endroit, puis s'agrandit jusqu'au plein écran. */
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const journey = document.querySelector("[data-journey]");
   const sticky = journey.querySelector(".journey-sticky");
+  const scenes = [...journey.querySelectorAll("[data-scene]")].map((el) => {
+    const [fx, fy] = el.dataset.focal.split(" ");
+    el.style.setProperty("--fx", fx);
+    el.style.setProperty("--fy", fy);
+    return { el, fx, fy, zoom: +el.dataset.zoom };
+  });
   const chapters = [...journey.querySelectorAll("[data-chapter]")];
   const rail = [...journey.querySelectorAll("[data-rail]")];
-  const meters = journey.querySelector("[data-meters]");
   const cue = journey.querySelector("[data-cue]");
-  const WALK = 48; // longueur approximative du trajet, en mètres
   const FADE = .035;
+  const EXPAND = .1;                       // le cadre de départ s'ouvre jusqu'au plein écran
+  const BOUNDS = [EXPAND, .34, .58, .82, 1]; // chaque scène occupe [BOUNDS[k], BOUNDS[k + 1]]
+  const ENTER = .08;                       // durée d'ouverture de la scène suivante
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  const easeIn = (t) => t * t;
 
-  function onScroll() {
-    const vh = window.innerHeight;
-    const r = journey.getBoundingClientRect();
-    const p = clamp(-r.top / (r.height - vh));
+  let target = 0, current = 0, raf = 0;
 
-    header.classList.toggle("is-solid", r.bottom < 80);
-    if (window.HMGarden) window.HMGarden.setProgress(p);
+  function paint(p) {
+    sticky.style.setProperty("--expand", ease(clamp(p / EXPAND)).toFixed(4));
+
+    scenes.forEach((sc, k) => {
+      const a = BOUNDS[k], b = BOUNDS[k + 1];
+      let scale = 1, opacity = 1, radius = 0, origin = `${sc.fx} ${sc.fy}`;
+      if (k > 0 && p < a) {
+        // ouverture : la scène sort du point focal de la précédente
+        const t = clamp((p - (a - ENTER)) / ENTER);
+        const prev = scenes[k - 1];
+        origin = `${prev.fx} ${prev.fy}`;
+        scale = .22 + .78 * ease(t);
+        opacity = clamp(t * 4);
+        radius = (1 - t) * 40;
+        if (t <= 0) opacity = 0;
+      } else {
+        // zoom vers le point focal
+        const t = clamp((p - a) / (b - a));
+        scale = 1 + (sc.zoom - 1) * easeIn(t);
+      }
+      const hidden = k < scenes.length - 1 && p >= BOUNDS[k + 1] + .002;
+      sc.el.style.opacity = hidden ? 0 : opacity.toFixed(3);
+      sc.el.style.transformOrigin = origin;
+      sc.el.style.transform = `scale(${scale.toFixed(4)})`;
+      sc.el.style.borderRadius = `${radius.toFixed(1)}px`;
+    });
 
     chapters.forEach((c) => {
       const from = +c.dataset.from, to = +c.dataset.to;
@@ -49,42 +81,30 @@
     let active = 0;
     rail.forEach((li, i) => { if (p >= +li.dataset.rail - .06) active = i; });
     rail.forEach((li, i) => li.classList.toggle("is-on", i === active));
-
-    meters.textContent = fmt(p * WALK, 1);
-    sticky.style.setProperty("--wo", (p > .02 && p < .13) || (p > .27 && p < .9) ? 1 : 0);
+    sticky.style.setProperty("--wo", p > .1 && p < .9 ? 1 : 0);
     cue.classList.toggle("is-hidden", p > .02);
   }
 
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => { onScroll(); ticking = false; });
-  }, { passive: true });
+  function tick() {
+    current += (target - current) * .14;
+    if (Math.abs(target - current) < .0004) current = target;
+    paint(current);
+    raf = current !== target ? requestAnimationFrame(tick) : 0;
+  }
+
+  function onScroll() {
+    const vh = window.innerHeight;
+    const r = journey.getBoundingClientRect();
+    target = clamp(-r.top / (r.height - vh));
+    header.classList.toggle("is-solid", r.bottom < 80);
+    if (reduced) { current = target; paint(current); return; }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   onScroll();
-
-  /* ---------- Vignettes matériaux ---------- */
-  if (window.HMTex) {
-    document.querySelectorAll("[data-swatch]").forEach((cv) => {
-      const src = window.HMTex.get(cv.dataset.swatch);
-      const w = 480, h = 600;
-      cv.width = w; cv.height = h;
-      const ctx = cv.getContext("2d");
-      const pat = ctx.createPattern(src, "repeat");
-      ctx.fillStyle = pat;
-      ctx.fillRect(0, 0, w, h);
-      // lumière rasante pour donner du relief
-      const g = ctx.createLinearGradient(0, 0, w, h);
-      g.addColorStop(0, "rgba(255,240,210,.18)");
-      g.addColorStop(1, "rgba(0,0,0,.22)");
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, w, h);
-    });
-    document.querySelectorAll("[data-swatch-bg]").forEach((el) => {
-      el.style.backgroundImage = `url(${window.HMTex.get(el.dataset.swatchBg).toDataURL("image/jpeg", .85)})`;
-    });
-  }
+  current = target; paint(current);
 
   /* ---------- Apparitions ---------- */
   const io = new IntersectionObserver((entries) => {
