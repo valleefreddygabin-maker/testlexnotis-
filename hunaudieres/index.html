@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hunaudières Matériaux — Déco du jardin et aménagement extérieur</title>
+  <meta name="description" content="Hunaudières Matériaux : la déco du jardin et l’aménagement extérieur pour les professionnels et les particuliers.">
+  <meta name="theme-color" content="#1c2415">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip" href="#produits">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE ============ -->
+  <header class="header" data-header>
+    <a class="brand" href="#top" aria-label="Hunaudières Matériaux, accueil">
+      <span class="brand-mono" aria-hidden="true">HM</span>
+      <span class="brand-text"><strong>Hunaudières</strong><span>Matériaux</span></span>
+    </a>
+    <div class="header-actions">
+      <a class="btn btn-green header-cta" href="#contact">Contactez-nous</a>
+      <button class="burger" aria-expanded="false" aria-controls="menu" data-burger>
+        <span></span><span></span><span class="sr-only">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu" id="menu" aria-label="Menu principal" data-menu>
+    <ol>
+      <li><a href="#top"><span>01</span>Le jardin</a></li>
+      <li><a href="#produits"><span>02</span>Nos matériaux</a></li>
+      <li><a href="#calcul"><span>03</span>Calculer ses quantités</a></li>
+      <li><a href="#pour-qui"><span>04</span>Pros &amp; particuliers</a></li>
+      <li><a href="#contact"><span>05</span>Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- ============ LE JARDIN (défilement = on avance dans l'image) ============ -->
+    <section class="journey" id="top" data-journey>
+      <div class="journey-sticky">
+        <canvas class="garden" data-garden aria-label="Jardin en 3D : une allée en pas japonais traverse une haie, longe des gabions et mène à une terrasse en dallage."></canvas>
+        <div class="garden-fallback" aria-hidden="true"></div>
+        <div class="vignette" aria-hidden="true"></div>
+
+        <!-- Accroche -->
+        <div class="chapter chapter-hero" data-chapter data-from="0" data-to=".1">
+          <p class="eyebrow">Aménagement extérieur</p>
+          <h1 class="hero-title">
+            <span class="ht-line"><span>Hunaudières</span></span>
+            <span class="ht-line"><span>Matériaux</span></span>
+          </h1>
+          <p class="hero-sub">La déco du jardin et l’aménagement extérieur pour les professionnels et les particuliers</p>
+          <div class="hero-actions">
+            <a class="btn btn-green btn-lg" href="#produits">Voir nos produits <span aria-hidden="true">→</span></a>
+            <a class="btn btn-glass btn-lg" href="#contact">Contactez-nous</a>
+          </div>
+        </div>
+
+        <div class="chapter chapter-enter" data-chapter data-from=".13" data-to=".27" aria-hidden="true">
+          <p class="enter-word">Entrez<em>dans le jardin</em></p>
+        </div>
+
+        <div class="chapter chapter-card" data-chapter data-from=".31" data-to=".43">
+          <p class="chapter-num">01 — Sous vos pas</p>
+          <h2>Pas japonais <em>&amp;</em> graviers</h2>
+          <p>Une allée qui dessine le jardin, posée pierre après pierre sur un lit de gravier clair.</p>
+        </div>
+
+        <div class="chapter chapter-card chapter-right" data-chapter data-from=".47" data-to=".59">
+          <p class="chapter-num">02 — Pour structurer</p>
+          <h2>Gabions <em>&amp;</em> galets</h2>
+          <p>Murets, soutènements, séparations : la pierre en cage, brute et graphique.</p>
+        </div>
+
+        <div class="chapter chapter-card" data-chapter data-from=".63" data-to=".75">
+          <p class="chapter-num">03 — Pour la chaleur</p>
+          <h2>Bois <em>&amp;</em> traverses</h2>
+          <p>Bacs surélevés, marches, bordures : le bois apporte sa matière au végétal.</p>
+        </div>
+
+        <div class="chapter chapter-card chapter-right" data-chapter data-from=".78" data-to=".87">
+          <p class="chapter-num">04 — Pour les finitions</p>
+          <h2>Bordures <em>&amp;</em> délimitations</h2>
+          <p>Des lignes nettes entre l’allée, la pelouse et les massifs.</p>
+        </div>
+
+        <div class="chapter chapter-final" data-chapter data-from=".91" data-to="1.01">
+          <p class="chapter-num">05 — Pour recevoir</p>
+          <h2>Dallages <em>&amp;</em> terrasses</h2>
+          <p>De la première pierre à la dernière dalle, tout votre extérieur au même endroit.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green btn-lg" href="#produits">Voir nos produits <span aria-hidden="true">→</span></a>
+            <a class="btn btn-glass btn-lg" href="#contact">Contactez-nous</a>
+          </div>
+        </div>
+
+        <!-- Repères de progression -->
+        <div class="walk" aria-hidden="true">
+          <div class="walk-meter"><span data-meters>0</span> m</div>
+          <div class="walk-label">parcourus dans l’allée</div>
+        </div>
+        <ol class="rail" aria-hidden="true">
+          <li data-rail=".05">Entrée</li>
+          <li data-rail=".37">Allée</li>
+          <li data-rail=".53">Gabions</li>
+          <li data-rail=".69">Bois</li>
+          <li data-rail=".83">Bordures</li>
+          <li data-rail=".96">Terrasse</li>
+        </ol>
+        <div class="scroll-cue" data-cue aria-hidden="true"><span></span>Défilez pour entrer</div>
+        <div class="loader" aria-hidden="true"><span class="brand-mono">HM</span></div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUITS ============ -->
+    <section class="products" id="produits">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow eyebrow-dark reveal">Nos matériaux</p>
+          <h2 class="section-title reveal">Tout ce qu’il faut<br>pour <em>faire</em> un jardin.</h2>
+          <p class="todo reveal">[À valider : catégories selon votre catalogue réel, avec photos produits, coloris et conditionnements.]</p>
+        </header>
+
+        <ul class="product-grid">
+          <li class="product reveal"><canvas class="swatch" data-swatch="gravel" aria-hidden="true"></canvas><h3>Graviers décoratifs</h3><p>Allées, cours, massifs</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="gabion" aria-hidden="true"></canvas><h3>Galets &amp; gabions</h3><p>Murets, soutènements</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="slab" aria-hidden="true"></canvas><h3>Pas japonais</h3><p>Cheminements dans la pelouse</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="pavers" aria-hidden="true"></canvas><h3>Dallages</h3><p>Terrasses, abords de piscine</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="drystone" aria-hidden="true"></canvas><h3>Pierres &amp; parements</h3><p>Murets, piliers, habillages</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="wood" aria-hidden="true"></canvas><h3>Bois &amp; traverses</h3><p>Bacs, marches, bordures</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="edging" aria-hidden="true"></canvas><h3>Bordures</h3><p>Délimitations nettes</p></li>
+          <li class="product reveal"><canvas class="swatch" data-swatch="mulch" aria-hidden="true"></canvas><h3>Paillages &amp; terres</h3><p>Massifs, plantations</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CALCUL DES QUANTITÉS ============ -->
+    <section class="calc" id="calcul">
+      <div class="wrap calc-grid">
+        <div>
+          <p class="eyebrow eyebrow-dark reveal">Préparer son projet</p>
+          <h2 class="section-title reveal">Combien<br>en <em>faut-il</em> ?</h2>
+          <p class="calc-intro reveal">Indiquez la surface et l’épaisseur : on vous donne une estimation du volume et du poids à prévoir. Pour une quantité exacte, demandez-nous conseil.</p>
+        </div>
+
+        <form class="calc-form reveal" data-calc novalidate>
+          <div class="field">
+            <label for="calc-mat">Matériau</label>
+            <select id="calc-mat" name="mat">
+              <option value="1.6" data-thick="5">Gravier décoratif</option>
+              <option value="1.7" data-thick="6">Galets</option>
+              <option value="1.4" data-thick="10">Terre végétale</option>
+              <option value="0.35" data-thick="7">Paillage (écorces)</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="calc-l">Longueur</label>
+              <div class="input-unit"><input id="calc-l" name="l" type="number" inputmode="decimal" min="0" step="0.1" value="8"><span>m</span></div>
+            </div>
+            <div class="field">
+              <label for="calc-w">Largeur</label>
+              <div class="input-unit"><input id="calc-w" name="w" type="number" inputmode="decimal" min="0" step="0.1" value="1.2"><span>m</span></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="calc-t">Épaisseur <output data-thick-out>5 cm</output></label>
+            <input id="calc-t" name="t" type="range" min="2" max="20" step="1" value="5">
+          </div>
+
+          <div class="calc-result" aria-live="polite">
+            <div><span class="res-num" data-res-area>9,6</span><span class="res-unit">m²</span><span class="res-label">surface</span></div>
+            <div><span class="res-num" data-res-vol>0,48</span><span class="res-unit">m³</span><span class="res-label">volume</span></div>
+            <div><span class="res-num" data-res-weight>0,77</span><span class="res-unit">t</span><span class="res-label">poids estimé</span></div>
+          </div>
+          <p class="calc-note">Estimation basée sur des densités moyennes (gravier ≈ 1,6 t/m³). Elle varie selon le calibre et l’humidité.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ POUR QUI ============ -->
+    <section class="audience" id="pour-qui">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow reveal">Pour qui</p>
+          <h2 class="section-title reveal">Pros <em>&amp;</em><br>particuliers.</h2>
+        </header>
+        <div class="audience-grid">
+          <article class="aud reveal">
+            <div class="aud-visual" data-swatch-bg="pavers" aria-hidden="true"></div>
+            <div class="aud-body">
+              <p class="chapter-num">Professionnels</p>
+              <h3>Paysagistes, entreprises du bâtiment</h3>
+              <p class="todo todo-light">[À compléter : ce que vous proposez aux pros — tarifs, comptes, livraison sur chantier, horaires…]</p>
+            </div>
+          </article>
+          <article class="aud reveal">
+            <div class="aud-visual" data-swatch-bg="gravel" aria-hidden="true"></div>
+            <div class="aud-body">
+              <p class="chapter-num">Particuliers</p>
+              <h3>Une allée, une terrasse, un jardin à repenser</h3>
+              <p class="todo todo-light">[À compléter : conseils, retrait sur place, livraison, visite du dépôt…]</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="contact-title reveal">Un projet<br>d’<em>extérieur</em> ?</h2>
+        <p class="contact-lead reveal">Parlez-nous de votre jardin : on vous aide à choisir les bons matériaux et les bonnes quantités.</p>
+        <div class="contact-actions reveal">
+          <!-- TODO : remplacer href="#" par le téléphone (tel:), l'e-mail (mailto:) ou la page de contact -->
+          <a class="btn btn-light btn-lg" href="#" data-todo-link>Contactez-nous <span aria-hidden="true">→</span></a>
+        </div>
+        <dl class="contact-facts reveal">
+          <div><dt>Adresse</dt><dd class="todo todo-light">[À fournir]</dd></div>
+          <div><dt>Téléphone</dt><dd class="todo todo-light">[À fournir]</dd></div>
+          <div><dt>Horaires</dt><dd class="todo todo-light">[À fournir]</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <a class="brand brand-footer" href="#top">
+        <span class="brand-mono" aria-hidden="true">HM</span>
+        <span class="brand-text"><strong>Hunaudières</strong><span>Matériaux</span></span>
+      </a>
+      <nav class="footer-nav" aria-label="Pied de page">
+        <a href="#produits">Nos matériaux</a>
+        <a href="#calcul">Calculer ses quantités</a>
+        <a href="#pour-qui">Pros &amp; particuliers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="todo todo-light">[À fournir : mentions légales, politique de confidentialité, réseaux sociaux, logo officiel.]</p>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© <span data-year>2026</span> Hunaudières Matériaux</span>
+    </div>
+    <p class="footer-word" aria-hidden="true">Hunaudières</p>
+  </footer>
+
+  <script src="assets/vendor/three.min.js"></script>
+  <script src="assets/js/textures.js"></script>
+  <script src="assets/js/garden.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
